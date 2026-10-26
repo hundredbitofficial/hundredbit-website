@@ -27,7 +27,7 @@ export default function ContactForm() {
     if (Object.keys(er).length) { (e.currentTarget.querySelector("[aria-invalid=true]") as HTMLElement | null)?.focus(); return; }
     setState("sending");
     try {
-      const r = await fetch("/api/contact.php", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...v, elapsed: Date.now() - started.current }) });
+      const r = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...v, elapsed: Date.now() - started.current }) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || "Something went wrong.");
       setState("ok"); (e.target as HTMLFormElement).reset();
