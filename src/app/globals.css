@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-white font-sans text-charcoal antialiased; overflow-x: hidden; }
+:focus-visible { outline: 2px solid #145CFF; outline-offset: 3px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .h-hero { font-size: clamp(2.5rem, 6.4vw, 6rem); line-height: 1.04; letter-spacing: -0.03em; @apply font-semibold; }
+  .h-section { font-size: clamp(2rem, 4.2vw, 3.75rem); line-height: 1.1; letter-spacing: -0.025em; @apply font-semibold; }
+  .h-sub { font-size: clamp(1.15rem, 1.8vw, 1.5rem); line-height: 1.4; }
+  .lead { @apply text-base leading-8 text-slate sm:text-lg; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition duration-300 sm:text-base; }
+  .btn-primary { @apply bg-electric text-white shadow-glow hover:-translate-y-0.5 hover:bg-royal; }
+  .btn-ghost { @apply border border-white/25 text-white hover:border-white/60 hover:bg-white/10; }
+  .btn-ghost-dark { @apply border border-charcoal/20 text-charcoal hover:border-electric hover:text-electric; }
+  .grid-bg { background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%); }
+}
+
+@keyframes sweep { 0%, 55% { transform: translateX(-130%) skewX(-12deg); } 100% { transform: translateX(420%) skewX(-12deg); } }
+.sweep { animation: sweep 7s ease-in-out infinite; }
