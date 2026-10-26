@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 "use client";
 import { useRef, useState } from "react";
 const services = ["Website Development", "Web Application Development", "Custom Software", "E-commerce", "UI/UX Design", "Data Analytics", "Automation", "Maintenance", "Other"];
